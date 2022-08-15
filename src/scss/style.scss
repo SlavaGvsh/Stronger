@@ -76,6 +76,7 @@ h4 {
   & + .btn {
     margin-left: 18px;
   }
+
   &-secondary {
     background: #000;
     color: #fff;
@@ -95,6 +96,40 @@ h4 {
     font-size: 16px;
     padding: 19px 10px;
     width: 100%;
+  }
+}
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    border-radius: 50%;
+    background: #fff;
+    color: #000;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+@media (max-width: 767px) {
+  .socials {
+    gap: 26px;
+    justify-content: center;
+    a {
+      width: 40px;
+      height: 40px;
+      // background: #000;
+      // color: #fff;
+      i {
+        font-size: 22px;
+      }
+    }
   }
 }
 
@@ -137,22 +172,126 @@ h4 {
     font-family: "Material Icons";
   }
 }
-.header__socials {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  a {
+@media (max-width: 991px) {
+  #header {
+    top: 0;
+    .container {
+      max-width: none;
+    }
+  }
+  .navbar-brand {
+    margin: 5px 0 0 8px;
+    .navbar-collapse & {
+      display: block;
+      margin: 0;
+      position: absolute;
+      top: 14px;
+      left: 20px;
+    }
+  }
+  .navbar-toggler {
+    position: relative;
+    z-index: 2;
+    border: none !important;
+    &:focus {
+      box-shadow: none;
+    }
+    &[aria-expanded="true"] {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      .navbar-toggler-icon {
+        position: relative;
+        background: none;
+        &::before,
+        &:after {
+          content: "";
+          position: absolute;
+          width: 2px;
+          height: 37px;
+          left: 50%;
+          top: 0;
+          background: #000;
+          transform: rotate(-45deg);
+        }
+        &:after {
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+  .navbar-collapse {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    padding: 74px 0 20px;
+  }
+  .navbar-scroll {
+    overflow-y: auto;
+    height: 100%;
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .navbar-nav {
     align-items: center;
-    justify-content: center;
-    width: 20px;
-    height: 20px;
-    overflow: hidden;
-    border-radius: 50%;
-    background: #fff;
-    color: #000;
-    &:hover {
-      opacity: 0.8;
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: 700;
+    display: block;
+    width: 100%;
+    .nav-link {
+      width: 100%;
+      text-align: center;
+      padding: 13px 0 22px;
+      color: #000 !important;
+      &.show,
+      &.active {
+        color: #fff !important;
+        background: linear-gradient(
+          90deg,
+          rgba(250, 2, 255, 0.55) 0%,
+          rgba(168, 42, 218, 0.85) 37.78%,
+          rgba(66, 0, 255, 0.8) 100%
+        );
+      }
+    }
+    .dropdown-menu {
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+    .dropdown-item {
+      padding: 13px 10px 22px 49%;
+      font-weight: 700;
+      text-align: left;
+      &.active {
+        color: #fff !important;
+        background: linear-gradient(
+          90deg,
+          rgba(250, 2, 255, 0.55) 0%,
+          rgba(168, 42, 218, 0.85) 37.78%,
+          rgba(66, 0, 255, 0.8) 100%
+        );
+      }
+    }
+  }
+  #header{
+    .socials {
+      gap: 26px;
+      justify-content: center;
+      a {
+        width: 40px;
+        height: 40px;
+        background: #000;
+        color: #fff;
+        i {
+          font-size: 22px;
+        }
+      }
     }
   }
 }
@@ -263,16 +402,18 @@ h4 {
       }
     }
   }
-  .header__socials {
-    gap: 26px;
-    justify-content: center;
-    a {
-      width: 40px;
-      height: 40px;
-      background: #000;
-      color: #fff;
-      i {
-        font-size: 22px;
+  #header{
+    .socials {
+      // gap: 26px;
+      // justify-content: center;
+      a {
+        // width: 40px;
+        // height: 40px;
+        background: #000;
+        color: #fff;
+        // i {
+        //   font-size: 22px;
+        // }
       }
     }
   }
@@ -1392,14 +1533,14 @@ h4 {
   }
 }
 @media (max-width: 767px) {
-  .footer__info{ 
+  .footer__info {
     li {
       padding: 0;
     }
-    .icon{
+    .icon {
       position: static;
     }
-    p{
+    p {
       font-size: 16px;
     }
   }
