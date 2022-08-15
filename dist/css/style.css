@@ -188,6 +188,38 @@ h4 {
   background: none;
 }
 
+.socials {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 14px;
+}
+
+.socials a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #fff;
+  color: #000;
+}
+
+.socials a:hover {
+  opacity: 0.8;
+}
+
 #header {
   position: absolute;
   z-index: 10;
@@ -237,38 +269,6 @@ h4 {
   vertical-align: top;
   content: "\e5cf";
   font-family: "Material Icons";
-}
-
-.header__socials {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 14px;
-}
-
-.header__socials a {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 20px;
-  height: 20px;
-  overflow: hidden;
-  border-radius: 50%;
-  background: #fff;
-  color: #000;
-}
-
-.header__socials a:hover {
-  opacity: 0.8;
 }
 
 .carousel-control-prev {
@@ -1338,6 +1338,156 @@ h4 {
 }
 
 @media (max-width: 991px) {
+  #header {
+    top: 0;
+  }
+
+  #header .container {
+    max-width: none;
+  }
+
+  .navbar-brand {
+    margin: 5px 0 0 8px;
+  }
+
+  .navbar-collapse .navbar-brand {
+    display: block;
+    margin: 0;
+    position: absolute;
+    top: 14px;
+    left: 20px;
+  }
+
+  .navbar-toggler {
+    position: relative;
+    z-index: 2;
+    border: none !important;
+  }
+
+  .navbar-toggler:focus {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+
+  .navbar-toggler[aria-expanded=true] {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+  }
+
+  .navbar-toggler[aria-expanded=true] .navbar-toggler-icon {
+    position: relative;
+    background: none;
+  }
+
+  .navbar-toggler[aria-expanded=true] .navbar-toggler-icon::before,
+  .navbar-toggler[aria-expanded=true] .navbar-toggler-icon:after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 37px;
+    left: 50%;
+    top: 0;
+    background: #000;
+    -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+  }
+
+  .navbar-toggler[aria-expanded=true] .navbar-toggler-icon:after {
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+
+  .navbar-collapse {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    padding: 74px 0 20px;
+  }
+
+  .navbar-scroll {
+    overflow-y: auto;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+
+  .navbar-nav {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-size: 16px;
+    line-height: 1.2;
+    font-weight: 700;
+    display: block;
+    width: 100%;
+  }
+
+  .navbar-nav .nav-link {
+    width: 100%;
+    text-align: center;
+    padding: 13px 0 22px;
+    color: #000 !important;
+  }
+
+  .navbar-nav .nav-link.show,
+  .navbar-nav .nav-link.active {
+    color: #fff !important;
+    background: -webkit-gradient(linear, left top, right top, from(rgba(250, 2, 255, 0.55)), color-stop(37.78%, rgba(168, 42, 218, 0.85)), to(rgba(66, 0, 255, 0.8)));
+    background: -o-linear-gradient(left, rgba(250, 2, 255, 0.55) 0%, rgba(168, 42, 218, 0.85) 37.78%, rgba(66, 0, 255, 0.8) 100%);
+    background: linear-gradient(90deg, rgba(250, 2, 255, 0.55) 0%, rgba(168, 42, 218, 0.85) 37.78%, rgba(66, 0, 255, 0.8) 100%);
+  }
+
+  .navbar-nav .dropdown-menu {
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+
+  .navbar-nav .dropdown-item {
+    padding: 13px 10px 22px 49%;
+    font-weight: 700;
+    text-align: left;
+  }
+
+  .navbar-nav .dropdown-item.active {
+    color: #fff !important;
+    background: -webkit-gradient(linear, left top, right top, from(rgba(250, 2, 255, 0.55)), color-stop(37.78%, rgba(168, 42, 218, 0.85)), to(rgba(66, 0, 255, 0.8)));
+    background: -o-linear-gradient(left, rgba(250, 2, 255, 0.55) 0%, rgba(168, 42, 218, 0.85) 37.78%, rgba(66, 0, 255, 0.8) 100%);
+    background: linear-gradient(90deg, rgba(250, 2, 255, 0.55) 0%, rgba(168, 42, 218, 0.85) 37.78%, rgba(66, 0, 255, 0.8) 100%);
+  }
+
+  #header .socials {
+    gap: 26px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+
+  #header .socials a {
+    width: 40px;
+    height: 40px;
+    background: #000;
+    color: #fff;
+  }
+
+  #header .socials a i {
+    font-size: 22px;
+  }
+
   .trial .container {
     display: block;
   }
@@ -1428,6 +1578,22 @@ h4 {
     font-size: 16px;
     padding: 19px 10px;
     width: 100%;
+  }
+
+  .socials {
+    gap: 26px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+
+  .socials a {
+    width: 40px;
+    height: 40px;
+  }
+
+  .socials a i {
+    font-size: 22px;
   }
 
   #header {
@@ -1562,22 +1728,9 @@ h4 {
     background: linear-gradient(90deg, rgba(250, 2, 255, 0.55) 0%, rgba(168, 42, 218, 0.85) 37.78%, rgba(66, 0, 255, 0.8) 100%);
   }
 
-  .header__socials {
-    gap: 26px;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-
-  .header__socials a {
-    width: 40px;
-    height: 40px;
+  #header .socials a {
     background: #000;
     color: #fff;
-  }
-
-  .header__socials a i {
-    font-size: 22px;
   }
 
   .carousel-inner-2 .carousel-item > div,
