@@ -4648,6 +4648,34 @@ h4 {
   display: none;
 }
 
+#header .dropdown-menu {
+  background: none;
+  border: 1px solid var(--border-color-secondary);
+  font-family: var(--bs-body-font-family);
+  font-size: var(--bs-body-font-size);
+  font-weight: var(--bs-body-font-weight);
+  line-height: var(--bs-body-line-height);
+  padding: 0;
+  overflow: hidden;
+}
+
+#header .dropdown-menu .dropdown-item {
+  color: var(--text-color-secondary);
+}
+
+#header .dropdown-item:focus,
+#header .dropdown-item:hover {
+  color: var(--text-color-secondary);
+  background-color: transparent;
+  opacity: 0.5;
+}
+
+#header .dropdown-item.active,
+#header .dropdown-item:active {
+  background-color: rgb(255, 255, 255);
+  color: var(--title-color);
+}
+
 .navbar-brand {
   width: 86px;
   padding: 0;
@@ -4891,12 +4919,11 @@ h4 {
   top: 0;
   bottom: 0;
   z-index: 10;
-  left: -29px;
-  width: 29px;
-  background: -o-linear-gradient(left, #000 13%, #e4eeee 100%);
-  background: -webkit-gradient(linear, left top, right top, color-stop(24%, #000), color-stop(226%, #cbcbe0));
-  background: -o-linear-gradient(left, #000 24%, #cbcbe0 226%);
-  background: linear-gradient(90deg, #000 24%, #cbcbe0 226%);
+  left: -2px;
+  width: 45px;
+  background: -webkit-gradient(linear, left top, right top, from(#000), color-stop(50%, rgba(0, 0, 0, 0.2)), to(rgba(255, 255, 255, 0)));
+  background: -o-linear-gradient(left, #000 0%, rgba(0, 0, 0, 0.2) 50%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(90deg, #000 0%, rgba(0, 0, 0, 0.2) 50%, rgba(255, 255, 255, 0) 100%);
 }
 
 .trial__title img {
