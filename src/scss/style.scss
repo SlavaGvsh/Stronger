@@ -1,21 +1,67 @@
-// include custom files
-@import "null";
+// @import "../../node_modules/bootstrap/scss/bootstrap";
+@import "../../node_modules/bootstrap/scss/functions";
+
 @import "_custom-variables";
 
+// $body-color: #111;
+@import "../../node_modules/bootstrap/scss/variables";
+
+@import "../../node_modules/bootstrap/scss/maps";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/root";
+
+@import "../../node_modules/bootstrap/scss/utilities";
+@import "../../node_modules/bootstrap/scss/bootstrap-utilities.scss";
+@import "../../node_modules/bootstrap/scss/reboot";
+// @import "../../node_modules/bootstrap/scss/type";
+// @import "../../node_modules/bootstrap/scss/images";
+@import "../../node_modules/bootstrap/scss/containers";
+@import "../../node_modules/bootstrap/scss/grid";
+// @import "../../node_modules/bootstrap/scss/helpers";
+@import "../../node_modules/bootstrap/scss/navbar";
+@import "../../node_modules/bootstrap/scss/nav";
+@import "../../node_modules/bootstrap/scss/dropdown";
+@import "../../node_modules/bootstrap/scss/carousel";
+@import "../../node_modules/bootstrap/scss/forms";
+@import "../../node_modules/bootstrap/scss/transitions";
+
+// include custom files
+@import "null";
+:root {
+  --bs-body-bg: #fff;
+  --bs-body-font-size: 12px;
+  --bs-body-font-weight: 400;
+  --bs-body-line-height: 1.2;
+  --bs-body-color: #000;
+  --bs-font-sans-serif: "Lato", sans-serif;
+  // --bs-white: #fff;
+  // --bs-black: #000;
+  --title-color: var(--bs-black);
+  --title-color-secondary: var(--bs-white);
+
+  --text-color: var(--bs-black);
+  --text-color-secondary: var(--bs-white);
+  --bg-color: var(--bs-black);
+  --bg-color-secondary: var(--bs-white);
+  --border-color: var(--bs-black);
+  --border-color-secondary: var(--bs-white);
+}
+
+
 body {
-  font-family: "Lato", sans-serif;
-  background-color: #fff;
-  font-weight: 400;
-  font-size: 12px;
+  // font-family: "Lato", sans-serif;
+  // background-color: var(--bs-body-bg);
+  // font-weight: 400;
+  // font-size: 12px;
   height: 100%;
-  line-height: 1.2;
-  color: #000;
+  // line-height: 1.2;
+  // color: #000;
 }
 h2 {
   font-weight: 700;
   font-size: 30px;
   line-height: 1.2;
-  color: #000;
+  color: var(--title-color);
   padding-left: 70px;
   margin-bottom: 50px;
 }
@@ -31,19 +77,19 @@ h3 {
   font-weight: 700;
   font-size: 20px;
   line-height: 1.2;
-  color: #000;
+  color: var(--title-color);
 }
 h4 {
   font-weight: 700;
   font-size: 16px;
   line-height: 1.2;
-  color: #000;
+  color: var(--title-color);
 }
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1040px;
-  }
-}
+// @media (min-width: 1200px) {
+//   .container {
+//     max-width: 1040px;
+//   }
+// }
 #wrapper {
   overflow: hidden;
   min-height: 100%;
@@ -62,29 +108,29 @@ h4 {
   font-size: 12px;
   line-height: 1.2;
   border-radius: 10px;
-  background: #fff;
-  border: 1px solid #000;
+  background: var(--bg-color-secondary);
+  border: 1px solid var(--border-color);
   padding: 14px 10px;
   text-align: center;
   color: #000;
   cursor: pointer;
   &:hover {
-    background: #000;
-    color: #fff;
-    border-color: #fff;
+    background: var(--bg-color);
+    color: var(--text-color-secondary);
+    border-color: var(--border-color-secondary);
   }
   & + .btn {
     margin-left: 18px;
   }
 
   &-secondary {
-    background: #000;
-    color: #fff;
-    border-color: #fff;
+    background: var(--bg-color);
+    color: var(--text-color-secondary);
+    border-color: var(--border-color-secondary);
     &:hover {
-      background: #fff;
-      color: #000;
-      border-color: #000;
+      background: var(--bg-color-secondary);
+      color: var(--text-color);
+      border-color: var(--border-color);
     }
   }
   &-transparent {
@@ -110,8 +156,8 @@ h4 {
     height: 20px;
     overflow: hidden;
     border-radius: 50%;
-    background: #fff;
-    color: #000;
+    background: var(--bg-color-secondary);
+    color: var(--text-color);
     &:hover {
       opacity: 0.8;
     }
@@ -160,11 +206,12 @@ h4 {
 .navbar-nav {
   gap: 32px;
   .nav-link {
-    color: #fff;
+    color: var(--text-color-secondary);
     &:hover {
       color: rgba(244, 240, 240, 0.566);
     }
   }
+
   .dropdown-toggle::after {
     border: none;
     vertical-align: top;
@@ -211,7 +258,7 @@ h4 {
           height: 37px;
           left: 50%;
           top: 0;
-          background: #000;
+          background: var(--bg-color);
           transform: rotate(-45deg);
         }
         &:after {
@@ -247,10 +294,10 @@ h4 {
       width: 100%;
       text-align: center;
       padding: 13px 0 22px;
-      color: #000 !important;
+      color: var(--text-color) !important;
       &.show,
       &.active {
-        color: #fff !important;
+        color: var(--text-color-secondary) !important;
         background: linear-gradient(
           90deg,
           rgba(250, 2, 255, 0.55) 0%,
@@ -269,7 +316,7 @@ h4 {
       font-weight: 700;
       text-align: left;
       &.active {
-        color: #fff !important;
+        color: var(--text-color-secondary) !important;
         background: linear-gradient(
           90deg,
           rgba(250, 2, 255, 0.55) 0%,
@@ -279,15 +326,15 @@ h4 {
       }
     }
   }
-  #header{
+  #header {
     .socials {
       gap: 26px;
       justify-content: center;
       a {
         width: 40px;
         height: 40px;
-        background: #000;
-        color: #fff;
+        background: var(--bg-color);
+        color: var(--text-color-secondary);
         i {
           font-size: 22px;
         }
@@ -334,7 +381,7 @@ h4 {
           height: 37px;
           left: 50%;
           top: 0;
-          background: #000;
+          background: var(--bg-color);
           transform: rotate(-45deg);
         }
         &:after {
@@ -370,10 +417,10 @@ h4 {
       width: 100%;
       text-align: center;
       padding: 13px 0 22px;
-      color: #000 !important;
+      color: var(--text-color) !important;
       &.show,
       &.active {
-        color: #fff !important;
+        color: var(--text-color-secondary) !important;
         background: linear-gradient(
           90deg,
           rgba(250, 2, 255, 0.55) 0%,
@@ -392,7 +439,7 @@ h4 {
       font-weight: 700;
       text-align: left;
       &.active {
-        color: #fff !important;
+        color: var(--text-color-secondary) !important;
         background: linear-gradient(
           90deg,
           rgba(250, 2, 255, 0.55) 0%,
@@ -402,15 +449,15 @@ h4 {
       }
     }
   }
-  #header{
+  #header {
     .socials {
       // gap: 26px;
       // justify-content: center;
       a {
         // width: 40px;
         // height: 40px;
-        background: #000;
-        color: #fff;
+        background: var(--bg-color);
+        color: var(--text-color-secondary);
         // i {
         //   font-size: 22px;
         // }
@@ -450,13 +497,13 @@ h4 {
   line-height: 19px;
   color: rgba(255, 255, 255, 0.8);
   padding: 200px 0 216px;
-  background: #000 url(../img/bg-intro.jpg) 50% 0 no-repeat;
+  background: var(--bg-color) url(../img/bg-intro.jpg) 50% 0 no-repeat;
   position: relative;
   h1 {
     font-weight: 700;
     font-size: 40px;
     line-height: 1.1;
-    color: #ffffff;
+    color: var(--title-color-secondary);
     margin: 0px 0px 170px;
   }
   p {
@@ -468,13 +515,13 @@ h4 {
 }
 @media (max-width: 992px) {
   .intro {
-    background: #000 url(../img/bg-intro.jpg) 64% 0 no-repeat;
+    background: var(--bg-color) url(../img/bg-intro.jpg) 64% 0 no-repeat;
   }
 }
 @media (max-width: 767px) {
   .intro {
     padding: 102px 0 23px;
-    background: #000 url(../img/bg-intro.jpg) 74% 100% no-repeat;
+    background: var(--bg-color) url(../img/bg-intro.jpg) 74% 100% no-repeat;
     background-size: cover !important;
     min-height: 100vh;
     display: flex;
@@ -514,7 +561,7 @@ h4 {
   position: relative;
   padding: 0 0 54px;
   h2 {
-    color: #ffffff;
+    color: var(--title-color-secondary);
     margin: 0 0 44px;
   }
   .carousel {
@@ -538,9 +585,9 @@ h4 {
   margin: 0 20px;
   padding: 32px 33px 44px 37px;
   border: 1px solid rgba(5, 5, 6, 0.2);
-  background-color: #fff;
+  background: var(--bg-color-secondary);
   border-radius: 6px;
-  color: #000;
+  color: var(--text-color);
   &__title {
     border-bottom: 1px solid #cdcdcd;
     margin: 0 0 27px;
@@ -572,7 +619,7 @@ h4 {
           top: 0;
           width: 23px;
           height: 23px;
-          background: #000 url(../img/pricing/icons-01.png) 50% 50% no-repeat;
+          background: var(--bg-color) url(../img/pricing/icons-01.png) 50% 50% no-repeat;
           border-radius: 50%;
         }
       }
@@ -584,7 +631,7 @@ h4 {
     }
   }
   &.active {
-    border-color: #fff;
+    border-color: var(--border-color-secondary);
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25), 0px 14px 16px 10px rgba(0, 0, 0, 0.15);
     margin-bottom: -12px;
     .price-block__title {
@@ -598,13 +645,13 @@ h4 {
         transition: padding-bottom 0.3s ease;
       }
       .btn {
-        background: #000;
-        color: #fff;
-        border-color: #fff;
+        background: var(--bg-color);
+        color: var(--text-color-secondary);
+        border-color: var(--border-color-secondary);
         &:hover {
-          background: #fff;
-          color: #000;
-          border-color: #000;
+          background: var(--bg-color-secondary);
+          color: var(--text-color);
+          border-color: var(--border-color);
         }
       }
     }
@@ -633,7 +680,7 @@ h4 {
     margin: 0;
     padding: 26px 0 54px;
     h2 {
-      color: #000;
+      color: var(--title-color);
       margin: 0 0 14px;
     }
     .carousel {
@@ -657,7 +704,7 @@ h4 {
 }
 //=============================trial
 .trial {
-  background-color: #000;
+  background: var(--bg-color);
   overflow: hidden;
   .container {
     max-width: 1440px;
@@ -671,18 +718,32 @@ h4 {
     picture {
       display: block;
       height: 100%;
+      position: relative;
+      &::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        z-index: 10;
+        left: -29px;
+        width: 29px;
+        background: -webkit-gradient(linear,left top,right top,color-stop(13%,#000),to(#d1dada));
+        background: -o-linear-gradient(left,#000 13%,#e4eeee 100%);
+        background: linear-gradient(90deg,#000 24%,#cbcbe0 226%);
+      }
     }
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      
     }
     .decor {
-      background-color: #fff;
+      background: var(--bg-color-secondary);
       font-weight: 700;
       font-size: 30px;
       line-height: 102%;
-      color: #000;
+      color: var(--text-color);
       position: absolute;
       top: 45px;
       left: 0;
@@ -710,7 +771,7 @@ h4 {
   }
   ul {
     display: flex;
-    color: #fff;
+    color: var(--text-color-secondary);
     flex-wrap: wrap;
     font-size: 12px;
     font-weight: 400;
@@ -728,7 +789,7 @@ h4 {
         top: 0;
         width: 23px;
         height: 23px;
-        background: #fff url(../img/trial/icons-01.svg) 50% 50% no-repeat;
+        background: var(--bg-color-secondary) url(../img/trial/icons-01.svg) 50% 50% no-repeat;
         border-radius: 50%;
       }
     }
@@ -806,7 +867,7 @@ h4 {
   }
   &__item {
     // width: 309px;
-    background-color: #fff;
+    background: var(--bg-color-secondary);
     border: 1px solid rgba(0, 0, 0, 0.6);
     border-radius: 6px;
     padding: 36px 32px 40px 33px;
@@ -829,7 +890,7 @@ h4 {
     picture {
       width: 58px;
       height: 58px;
-      background: #000;
+      background: var(--bg-color);
       border-radius: 50%;
       flex: 0 0 58px;
       display: flex;
@@ -876,11 +937,11 @@ h4 {
 }
 //=========================trainers
 .trainers {
-  background-color: #000;
-  color: #fff;
+  background: var(--bg-color);
+  color: var(--text-color-secondary);
   padding: 57px 0 107px;
   h2 {
-    color: #fff;
+    color: var(--title-color-secondary);
   }
   .carousel {
     margin: 0 -30px;
@@ -949,9 +1010,9 @@ h4 {
       align-items: center;
       width: 24px;
       height: 24px;
-      background: #fff;
+      background: var(--bg-color-secondary);
       border-radius: 50%;
-      color: #000;
+      color: var(--text-color);
     }
     .social__item:hover {
       opacity: 0.5;
@@ -1041,8 +1102,8 @@ h4 {
 }
 //=========================classes
 .classes {
-  background-color: #fff;
-  color: #000;
+  background: var(--bg-color-secondary);
+  color: var(--text-color);
   padding: 86px 0 107px;
   .carousel {
     margin: 0 -21px;
@@ -1051,7 +1112,7 @@ h4 {
     width: 309px;
     display: flex;
     flex-direction: column;
-    background: #fff;
+    background: var(--bg-color-secondary);
     border-radius: 6px;
     border: 1px solid rgba(0, 0, 0, 0.3);
     margin: 0 21px;
@@ -1095,7 +1156,7 @@ h4 {
         height: 100%;
       }
     }
-    
+
     &__body {
       padding: 15px 20px 31px 20px;
     }
@@ -1137,21 +1198,21 @@ h4 {
 //=========================timetable
 .timetable {
   padding: 57px 0 111px;
-  background: #000 url(../img/timetable/bg-timetable.jpg) 50% 0 no-repeat;
+  background: var(--bg-color) url(../img/timetable/bg-timetable.jpg) 50% 0 no-repeat;
   h2 {
-    color: #fff;
+    color: var(--title-color-secondary);
   }
 }
 .time {
   &__table {
-    border: 1px solid #fff;
-    color: #fff;
+    border: 1px solid var(--border-color-secondary);
+    color: var(--text-color-secondary);
   }
   &__row {
     display: flex;
     justify-content: space-between;
     &:not(:last-child) {
-      border-bottom: 1px solid #ffffff;
+      border-bottom: 1px solid var(--border-color-secondary);
     }
   }
   &__cell {
@@ -1166,7 +1227,7 @@ h4 {
       padding: 6px 5px 11px 139px;
       font-size: 12px;
       line-height: 1.2;
-      border-left: 1px solid #ffffff;
+      border-left: 1px solid var(--border-color-secondary);
       ul {
         padding: 0;
         li {
@@ -1248,8 +1309,8 @@ h4 {
 }
 //============stories
 .stories {
-  background-color: #fff;
-  color: #000;
+  background: var(--bg-color-secondary);
+  color: var(--text-color);
   padding: 85px 0 104px;
   .btn {
     min-width: 116px;
@@ -1262,7 +1323,7 @@ h4 {
   }
   &__items {
     width: 476px;
-    background: #fff;
+    background: var(--bg-color-secondary);
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 6px;
     display: flex;
@@ -1285,7 +1346,7 @@ h4 {
   &__body {
     padding: 61px 25px 24px 23px;
     h4 {
-      color: #000;
+      color: var(--text-color);
       position: relative;
       margin: 0 0 10px;
       &::before {
@@ -1382,7 +1443,7 @@ h4 {
 }
 //=====================fotos
 .fotos {
-  background-color: #000;
+  background-color: var(--bg-color);
   padding: 29px 0px 29px 0px;
   overflow: hidden;
   position: relative;
@@ -1474,7 +1535,7 @@ h4 {
       padding: 20px 0 45px 66px;
     }
     .icon {
-      background: #000;
+      background: var(--bg-color);
       border-radius: 50%;
       width: 45px;
       height: 45px;
@@ -1494,7 +1555,7 @@ h4 {
       }
     }
     a {
-      color: #000;
+      color: var(--text-color);
     }
   }
   &__socials {
@@ -1551,7 +1612,7 @@ h4 {
 .btn-top {
   height: 78px;
   width: 78px;
-  border: 1px solid #000000;
+  border: 1px solid var(--border-color);
   border-radius: 50%;
   position: absolute;
   bottom: 140px;
@@ -1563,7 +1624,7 @@ h4 {
     left: 47%;
     width: 17px;
     height: 1px;
-    background-color: #000;
+    background: var(--bg-color);
     transform: rotate(45deg);
     position: absolute;
   }
