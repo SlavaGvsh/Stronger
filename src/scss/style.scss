@@ -69,6 +69,11 @@ h2 {
   padding-left: 70px;
   margin-bottom: 50px;
 }
+@include media-breakpoint-up(xl) {
+  h2 {
+    font-size: 30px;
+  }
+}
 @include media-breakpoint-down(md) {
   h2 {
     font-size: 22px;
@@ -508,27 +513,34 @@ h4 {
   padding: 0 0 54px;
   h2 {
     color: var(--title-color-secondary);
-    margin: 0 0 44px;
+    margin: 0 0 30px;
   }
-  .carousel {
-    margin: 0 -15px;
-  }
-  .carousel-item {
-    align-items: flex-start;
-    padding: 0 0 50px;
-  }
-  .carousel-control-prev {
-    left: -116px;
-    bottom: 60px;
-  }
-  .carousel-control-next {
-    right: -116px;
-    bottom: 60px;
+  .swiper {
+    &-container {
+      margin: 0 -15px;
+    }
+    &-wrapper {
+      padding: 15px 0 50px;
+    }
+    &-slide {
+      padding: 0 20px;
+    }
+    &-button-prev {
+      top: 44%;
+      left: -50px;
+    }
+    &-button-next {
+      top: 44%;
+      right: -50px;
+    }
+    &-button-next:after,
+    &-button-prev:after {
+      color: #000;
+    }
   }
 }
 .price-block {
-  width: 309px;
-  margin: 0 20px;
+  // width: 309px;
   padding: 32px 33px 44px 37px;
   border: 1px solid rgba(5, 5, 6, 0.2);
   background: var(--bg-color-secondary);
@@ -576,7 +588,7 @@ h4 {
       font-size: 16px;
     }
   }
-  &.active {
+  .swiper-slide-next & {
     border-color: var(--border-color-secondary);
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25), 0px 14px 16px 10px rgba(0, 0, 0, 0.15);
     margin-bottom: -12px;
@@ -605,19 +617,19 @@ h4 {
 }
 @include media-breakpoint-down(xl) {
   .pricing {
-    .carousel {
-      margin: 0 auto;
-      max-width: 890px;
-    }
-    .carousel-control-next {
-      right: -90px;
-    }
-    .carousel-control-prev {
-      left: -90px;
+    .swiper {
+      &-slide {
+        // padding: 0 10px;
+      }
+      &-button-prev {
+        left: -10px;
+      }
+      &-button-next {
+        right: -10px;
+      }
     }
   }
   .price-block {
-    margin: 0 10px;
     padding: 32px 20px 44px 20px;
   }
 }
@@ -627,41 +639,72 @@ h4 {
     padding: 26px 0 54px;
     h2 {
       color: var(--title-color);
-      margin: 0 0 14px;
+      margin: 0;
     }
-    .carousel {
-      max-width: 310px;
-    }
-    .carousel-item {
-      padding: 20px 20px 50px;
-    }
-    .carousel-control-next {
-      right: -30px;
-    }
-    .carousel-control-prev {
-      left: -30px;
+    .swiper {
+      &-container {
+        margin: 0;
+      }
+      &-slide {
+        padding: 0 25px;
+      }
     }
   }
   .price-block {
-    margin: 0;
     border: none;
+    height: 100%;
+    padding: 32px 20px 26px 30px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25), 0px 14px 16px 10px rgba(0, 0, 0, 0.15);
+    &-title{
+      margin: 0 0 25px;
+        padding: 0 0 29px;
+    }
+    &-body{
+      ul{
+        li{
+          padding: 0 27px 4px 35px;
+          margin: 0 0 20px;
+        }
+      }
+    }
+    .btn {
+      background: var(--bg-color);
+      color: var(--text-color-secondary);
+      border-color: var(--border-color-secondary);
+      &:hover {
+        background: var(--bg-color-secondary);
+        color: var(--text-color);
+        border-color: var(--border-color);
+      }
+    }
+    .swiper-slide-next & {
+      margin-bottom: 0;
+      .price-block-title {
+        
+        h3 {
+          margin: 0 0 14px;
+        }
+      }
+      .price-block-body {
+        ul {
+          padding-bottom: 0;
+          
+        }
+      }
+    }
   }
 }
 @include media-breakpoint-down(sm) {
-  .pricing {
-    .carousel-control-next {
-      right: -20px;
-    }
-    .carousel-control-prev {
-      left: -20px;
-    }
-    .carousel-control-next-icon,
-    .carousel-control-prev-icon {
-      width: 1.5rem;
-      height: 1.5rem;
-    }
+  .price-block {
+    padding: 32px 10px 26px 10px;
   }
+  .price-block-body{
+    ul {
+      li {
+      padding: 0 14px 4px 27px;
+      }
+    }
+  } 
 }
 // //=============================swiper
 // .swiper {
@@ -1105,8 +1148,8 @@ h4 {
 @include media-breakpoint-down(md) {
   .trainers {
     padding: 65px 0;
-    &-items{
-    flex-direction: column;
+    &-items {
+      flex-direction: column;
     }
     h2 {
       margin: 0 0 30px;
@@ -1210,7 +1253,7 @@ h4 {
     }
   }
   //&-button-next:after,
-  .swiper{
+  .swiper {
     &-button-next:after,
     &-button-prev:after {
       // font-size: 30px;
@@ -1320,7 +1363,6 @@ h4 {
   }
 }
 .swiper {
-  
   &-button-prev {
     left: -70px;
   }
@@ -1332,7 +1374,6 @@ h4 {
     // font-size: 30px;
     color: #fff;
   }
-  
 }
 @include media-breakpoint-down(xl) {
   .timetable {
@@ -1472,16 +1513,16 @@ h4 {
     &-img {
       flex: 0 0 180px;
     }
-  //   .carousel {
-  //     margin: 0 auto;
-  //     max-width: 890px;
-  //   }
-  //   .carousel-control-next {
-  //     right: -90px;
-  //   }
-  //   .carousel-control-prev {
-  //     left: -90px;
-  //   }
+    //   .carousel {
+    //     margin: 0 auto;
+    //     max-width: 890px;
+    //   }
+    //   .carousel-control-next {
+    //     right: -90px;
+    //   }
+    //   .carousel-control-prev {
+    //     left: -90px;
+    //   }
   }
 }
 @include media-breakpoint-down(lg) {
@@ -1513,9 +1554,9 @@ h4 {
     // .carousel-control-prev {
     //   left: -35px;
     // }
-    &-body{
+    &-body {
       padding: 40px 15px 20px 15px;
-      .story{
+      .story {
         max-height: 130px;
         overflow: hidden;
       }
@@ -1523,7 +1564,7 @@ h4 {
         top: -22px;
       }
     }
-    &-items{
+    &-items {
       display: block;
     }
     &-img {
@@ -1539,7 +1580,7 @@ h4 {
     .swiper-container {
       padding: 0 20px;
     }
-    .btn{
+    .btn {
       padding: 20px 0px 20px 0px;
     }
   }

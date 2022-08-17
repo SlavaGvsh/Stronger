@@ -3,6 +3,31 @@ import * as flsFunction from "./modules/functions.js";
 flsFunction.isWebp();
 
 // Initialize Swiper 
+const swiperPricing = new Swiper(".pricing .swiper", {
+
+   navigation: {
+      nextEl: '.pricing .swiper-button-next',
+      prevEl: '.pricing .swiper-button-prev',
+   },
+   slidesPerView: 1,
+   spaceBetween: 0,
+   slidesPerGroup: 1,
+   speed: 800,
+   loop: true,
+   loopFillGroupWithBlank: true,
+   breakpoints: {
+      768: {
+         slidesPerView: 2
+      },
+      992: {
+         slidesPerView: 3
+      },
+      1200: {
+         slidesPerView: 3
+      },
+   }
+
+});
 const swiperClasses = new Swiper(".classes .swiper", {
 
    navigation: {
