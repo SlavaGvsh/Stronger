@@ -24,8 +24,13 @@
 @import "../../node_modules/bootstrap/scss/carousel";
 @import "../../node_modules/bootstrap/scss/forms";
 @import "../../node_modules/bootstrap/scss/transitions";
-
+//==========import 'swiper/css';
+@import "../../node_modules/swiper/swiper-bundle.css";
+// @import 'swiper/css';
+// @import '../../node_modules/swiper/c';
+// @import 'swiper/css/pagination';
 // include custom files
+@import "swiper";
 @import "null";
 :root {
   --bs-body-bg: #fff;
@@ -77,6 +82,11 @@ h3 {
   font-size: 20px;
   line-height: 1.2;
   color: var(--title-color);
+}
+@include media-breakpoint-up(xl) {
+  h3 {
+    font-size: 20px;
+  }
 }
 h4 {
   font-weight: 700;
@@ -253,6 +263,8 @@ h4 {
     .dropdown-menu {
       background: var(--bg-color-secondary);
       border: none;
+      border-radius: 0;
+      display: block;
       .dropdown-item {
         color: var(--text-color);
         font-weight: 700;
@@ -388,23 +400,42 @@ h4 {
   right: -106px;
 }
 //=====================carousel (2 and 3 item per slide)
-@include media-breakpoint-down(md) {
-  .carousel-inner-2 .carousel-item > div,
-  .carousel-inner-3 .carousel-item > div {
-    display: none;
+@media (min-width: 768px) {
+  .carousel-inner-2 .carousel-item.active,
+  .carousel-inner-2 .carousel-item-next,
+  .carousel-inner-2 .carousel-item-prev,
+  .carousel-inner-3 .carousel-item.active,
+  .carousel-inner-3 .carousel-item-next,
+  .carousel-inner-3 .carousel-item-prev {
+    display: flex;
   }
-  .carousel-inner-2 .carousel-item > div:first-child,
-  .carousel-inner-3 .carousel-item > div:first-child {
-    display: block;
+
+  .carousel-inner-2 .carousel-item-end.active,
+  .carousel-inner-2 .carousel-item-next {
+    transform: translateX(50%);
   }
-}
-.carousel-inner-2 .carousel-item.active,
-.carousel-inner-2 .carousel-item-next,
-.carousel-inner-2 .carousel-item-prev,
-.carousel-inner-3 .carousel-item.active,
-.carousel-inner-3 .carousel-item-next,
-.carousel-inner-3 .carousel-item-prev {
-  display: flex;
+
+  .carousel-inner-2 .carousel-item-start.active,
+  .carousel-inner-2 .carousel-item-prev {
+    transform: translateX(-50%);
+  }
+
+  .carousel-inner-3 .carousel-item-end.active,
+  .carousel-inner-3 .carousel-item-next {
+    transform: translateX(33.33%);
+  }
+
+  .carousel-inner-3 .carousel-item-start.active,
+  .carousel-inner-3 .carousel-item-prev {
+    transform: translateX(-33.33%);
+  }
+
+  .carousel-inner-2 .carousel-item-end,
+  .carousel-inner-2 .carousel-item-start,
+  .carousel-inner-3 .carousel-item-end,
+  .carousel-inner-3 .carousel-item-start {
+    transform: translateX(0);
+  }
 }
 //=====================intro
 .intro {
@@ -617,6 +648,78 @@ h4 {
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25), 0px 14px 16px 10px rgba(0, 0, 0, 0.15);
   }
 }
+@include media-breakpoint-down(sm) {
+  .pricing {
+    .carousel-control-next {
+      right: -20px;
+    }
+    .carousel-control-prev {
+      left: -20px;
+    }
+    .carousel-control-next-icon,
+    .carousel-control-prev-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+}
+// //=============================swiper
+// .swiper {
+//   &-container {
+//     position: relative;
+//   }
+//   &-button-prev {
+//     left: -70px;
+//   }
+//   &-button-next {
+//     right: -70px;
+//   }
+//   &-button-next:after,
+//   &-button-prev:after {
+//     font-size: 30px;
+//     color: #000;
+//   }
+//   &-slide {
+//     height: auto;
+//   }
+// }
+// @include media-breakpoint-down(xl) {
+//   .swiper {
+//     &-container {
+//       padding: 0px 40px;
+//     }
+//     &-button-prev {
+//       left: -10px;
+//     }
+//     &-button-next {
+//       right: -10px;
+//     }
+//   }
+// }
+// @include media-breakpoint-down(lg) {
+//   .swiper {
+//     &-container {
+//       padding: 0px 40px;
+//     }
+//     &-button-prev {
+//       left: -10px;
+//     }
+//     &-button-next {
+//       right: -10px;
+//     }
+//   }
+// }
+// @include media-breakpoint-down(md) {
+//   .swiper {
+//     &-container {
+//       padding: 0px 10px;
+//     }
+//     &-button-next:after,
+//     &-button-prev:after {
+//       font-size: 20px;
+//     }
+//   }
+// }
 //=============================trial
 .trial {
   background: var(--bg-color);
@@ -890,22 +993,15 @@ h4 {
   h2 {
     color: var(--title-color-secondary);
   }
-  .carousel {
-    margin: 0 -30px;
-  }
-  .carousel-control-prev {
-    left: -100px;
-  }
-  .carousel-control-next {
-    right: -100px;
-  }
   &-items {
-    width: 476px;
+    // width: 476px;
     background: #0f0f0f;
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 6px;
     display: flex;
-    margin: 0 30px;
+    // margin: 0 30px;
+    overflow: hidden;
+    height: 100%;
     overflow: hidden;
   }
   &-img {
@@ -969,19 +1065,19 @@ h4 {
 @include media-breakpoint-down(xl) {
   .trainers {
     padding: 35px 0 65px;
-    .carousel {
-      margin: 0 auto;
-      max-width: 890px;
-    }
-    .carousel-control-next {
-      right: -90px;
-    }
-    .carousel-control-prev {
-      left: -90px;
-    }
-    &-items {
-      margin: 0 20px;
-    }
+    // .carousel {
+    //   margin: 0 auto;
+    //   max-width: 890px;
+    // }
+    // .carousel-control-next {
+    //   right: -90px;
+    // }
+    // .carousel-control-prev {
+    //   left: -90px;
+    // }
+    // &-items {
+    //   margin: 0 20px;
+    // }
     &-img {
       flex: 0 0 180px;
     }
@@ -998,31 +1094,35 @@ h4 {
     &-img {
       flex: 0 0 140px;
     }
-    .carousel-control-next {
-      right: -55px;
-    }
-    .carousel-control-prev {
-      left: -55px;
-    }
+    // .carousel-control-next {
+    //   right: -55px;
+    // }
+    // .carousel-control-prev {
+    //   left: -55px;
+    // }
   }
 }
 @include media-breakpoint-down(md) {
   .trainers {
-    padding: 30px 0;
+    padding: 65px 0;
+    &-items{
+    flex-direction: column;
+    }
     h2 {
       margin: 0 0 30px;
     }
-    .carousel {
-      max-width: 355px;
-    }
-    .carousel-control-next {
-      right: -25px;
-    }
-    .carousel-control-prev {
-      left: -25px;
-    }
+    // .carousel {
+    //   max-width: 355px;
+    // }
+    // .carousel-control-next {
+    //   right: -25px;
+    // }
+    // .carousel-control-prev {
+    //   left: -25px;
+    // }
     &-img {
-      height: 218px;
+      // height: 218px;
+      flex: 0 0 220px;
       .desktop {
         display: none;
       }
@@ -1032,7 +1132,12 @@ h4 {
     }
     &-body {
       font-size: 16px;
-      padding: 6px 23px 30px 20px;
+      padding: 6px 23px 21px 20px;
+      gap: 35px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
       h3 {
         text-align: center;
         margin: 0 0 1px;
@@ -1045,6 +1150,24 @@ h4 {
     &-socials {
       justify-content: center;
     }
+    .swiper-container {
+      padding: 0 21px;
+    }
+  }
+}
+@include media-breakpoint-down(sm) {
+  .trainers {
+    // .carousel-control-next {
+    //   right: -18px;
+    // }
+    // .carousel-control-prev {
+    //   left: -18px;
+    // }
+    // .carousel-control-next-icon,
+    // .carousel-control-prev-icon {
+    //   width: 1.5rem;
+    //   height: 1.5rem;
+    // }
   }
 }
 //=========================classes
@@ -1052,17 +1175,13 @@ h4 {
   background: var(--bg-color-secondary);
   color: var(--text-color);
   padding: 86px 0 107px;
-  .carousel {
-    margin: 0 -21px;
-  }
   &-items {
-    width: 309px;
     display: flex;
     flex-direction: column;
     background: var(--bg-color-secondary);
     border-radius: 6px;
     border: 1px solid rgba(0, 0, 0, 0.3);
-    margin: 0 21px;
+    height: 100%;
   }
   &-img {
     border-radius: 6px 6px 0 0;
@@ -1090,58 +1209,60 @@ h4 {
       }
     }
   }
+  //&-button-next:after,
+  .swiper{
+    &-button-next:after,
+    &-button-prev:after {
+      // font-size: 30px;
+      color: #000;
+    }
+  }
 }
+
 @include media-breakpoint-down(xl) {
   .classes {
     padding: 35px 0 60px;
-    &-items {
-      margin: 0 10px;
-    }
     &-img {
       height: 160px;
       picture {
         height: 100%;
       }
     }
-
     &-body {
       padding: 15px 20px 31px 20px;
-    }
-    .carousel {
-      margin: 0 auto;
-      max-width: 890px;
-    }
-    .carousel-control-next {
-      right: -90px;
-    }
-    .carousel-control-prev {
-      left: -90px;
     }
   }
 }
 @include media-breakpoint-down(lg) {
   .classes {
-    .carousel-control-next {
-      right: -65px;
-    }
-    .carousel-control-prev {
-      left: -65px;
+    &-img {
+      height: 210px;
     }
   }
 }
 @include media-breakpoint-down(md) {
   .classes {
-    .carousel {
-      max-width: 310px;
-    }
-    .carousel-control-next {
-      right: -35px;
-    }
-    .carousel-control-prev {
-      left: -35px;
+    &-items {
+      font-size: 16px;
+      line-height: 1.2;
     }
   }
 }
+// @include media-breakpoint-down(sm) {
+//   //   .classes {
+//   //     .carousel-control-next {
+//   //       right: -24px;
+//   //     }
+//   //     .carousel-control-prev {
+//   //       left: -24px;
+//   //     }
+//   //     .carousel-control-next-icon,
+//   //     .carousel-control-prev-icon {
+//   //       width: 1.5rem;
+//   //       height: 1.5rem;
+//   //     }
+//   //   }
+// }
 //=========================timetable
 .timetable {
   padding: 57px 0 111px;
@@ -1198,7 +1319,21 @@ h4 {
     }
   }
 }
-
+.swiper {
+  
+  &-button-prev {
+    left: -70px;
+  }
+  &-button-next {
+    right: -70px;
+  }
+  &-button-next:after,
+  &-button-prev:after {
+    // font-size: 30px;
+    color: #fff;
+  }
+  
+}
 @include media-breakpoint-down(xl) {
   .timetable {
     padding: 35px 0 65px;
@@ -1266,16 +1401,13 @@ h4 {
     font-size: 14px;
     line-height: 1.2;
   }
-  .carousel {
-    margin: 0 -27px;
-  }
   &-items {
-    width: 476px;
+    // width: 476px;
     background: var(--bg-color-secondary);
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 6px;
     display: flex;
-    margin: 0 27px;
+    height: 100%;
   }
   &-img {
     flex: 0 0 262px;
@@ -1325,30 +1457,35 @@ h4 {
       }
     }
   }
+  .swiper {
+    &-button-next:after,
+    &-button-prev:after {
+      // font-size: 30px;
+      color: #000;
+    }
+  }
 }
+
 @include media-breakpoint-down(xl) {
   .stories {
     padding: 35px 0 65px;
     &-img {
       flex: 0 0 180px;
     }
-    .carousel {
-      margin: 0 auto;
-      max-width: 890px;
-    }
-    .carousel-control-next {
-      right: -90px;
-    }
-    .carousel-control-prev {
-      left: -90px;
-    }
+  //   .carousel {
+  //     margin: 0 auto;
+  //     max-width: 890px;
+  //   }
+  //   .carousel-control-next {
+  //     right: -90px;
+  //   }
+  //   .carousel-control-prev {
+  //     left: -90px;
+  //   }
   }
 }
 @include media-breakpoint-down(lg) {
   .stories {
-    &-items {
-      margin: 0 10px;
-    }
     &-body {
       padding: 50px 15px 20px 15px;
       gap: 10px;
@@ -1356,28 +1493,42 @@ h4 {
     &-img {
       flex: 0 0 140px;
     }
-    .carousel-control-next {
-      right: -55px;
-    }
-    .carousel-control-prev {
-      left: -55px;
-    }
+    // .carousel-control-next {
+    //   right: -55px;
+    // }
+    // .carousel-control-prev {
+    //   left: -55px;
+    // }
   }
 }
 @include media-breakpoint-down(md) {
   .stories {
-    padding: 30px 0;
-    .carousel {
-      max-width: 325px;
+    // padding: 30px 0;
+    // .carousel {
+    //   max-width: 325px;
+    // }
+    // .carousel-control-next {
+    //   right: -35px;
+    // }
+    // .carousel-control-prev {
+    //   left: -35px;
+    // }
+    &-body{
+      padding: 40px 15px 20px 15px;
+      .story{
+        max-height: 130px;
+        overflow: hidden;
+      }
+      h4::before {
+        top: -22px;
+      }
     }
-    .carousel-control-next {
-      right: -35px;
-    }
-    .carousel-control-prev {
-      left: -35px;
+    &-items{
+      display: block;
     }
     &-img {
-      height: 218px;
+      height: 204px;
+      border-radius: 0;
       // .desktop {
       //   display: none;
       // }
@@ -1385,10 +1536,29 @@ h4 {
       //   display: block;
       // }
     }
-    &-body {
+    .swiper-container {
+      padding: 0 20px;
+    }
+    .btn{
+      padding: 20px 0px 20px 0px;
     }
   }
 }
+// @include media-breakpoint-down(sm) {
+//   .stories {
+//     .carousel-control-next {
+//       right: -24px;
+//     }
+//     .carousel-control-prev {
+//       left: -24px;
+//     }
+//     .carousel-control-next-icon,
+//     .carousel-control-prev-icon {
+//       width: 1.5rem;
+//       height: 1.5rem;
+//     }
+//   }
+// }
 //=====================fotos
 .fotos {
   background-color: var(--bg-color);
@@ -1470,9 +1640,22 @@ h4 {
     resize: none;
     height: 90px;
   }
+  .socials {
+    gap: 14px;
+    justify-content: flex-end;
+    a {
+      width: 32px;
+      height: 32px;
+      background: var(--bg-color);
+      color: var(--text-color-secondary);
+      i {
+        font-size: 18px;
+      }
+    }
+  }
 }
 .footer {
-  &__info {
+  &-info {
     display: flex;
     flex-wrap: wrap;
     padding-left: 74px;
@@ -1481,6 +1664,7 @@ h4 {
       flex: 0 0 50%;
       position: relative;
       padding: 20px 0 45px 66px;
+      margin: 0 0 27px 0;
     }
     .icon {
       background: var(--bg-color);
@@ -1506,20 +1690,13 @@ h4 {
       color: var(--text-color);
     }
   }
-  &-socials {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 11px;
-    padding: 0 20px 0 0;
-  }
 }
 @include media-breakpoint-down(xl) {
   #footer {
     padding-top: 35px;
     padding-bottom: 65px;
   }
-  .footer__info {
+  .footer-info {
     padding-left: 30px;
     margin: 0;
     li {
@@ -1532,30 +1709,45 @@ h4 {
     .btn {
       display: block;
     }
+    .socials {
+      justify-content: center;
+      gap: 27px;
+      a {
+        width: 40px;
+        height: 40px;
+      }
+    }
   }
   .footer {
-    &__info {
+    &-info {
       padding: 40px 0 0;
-    }
-    &-socials {
-      justify-content: center;
     }
   }
 }
 @include media-breakpoint-down(md) {
-  .footer__info {
+  .footer-info {
+    margin: 0px 0px 22px 0px;
+    text-align: center;
     li {
       padding: 0;
     }
     .icon {
       position: static;
+      margin: 0 auto;
     }
     p {
       font-size: 16px;
     }
+    address {
+      font-size: 16px;
+    }
   }
 }
-
+@include media-breakpoint-down(sm) {
+  .footer-info {
+    flex-direction: column;
+  }
+}
 //===============================
 .btn-top {
   height: 78px;
