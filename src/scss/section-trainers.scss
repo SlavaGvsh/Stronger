@@ -1,0 +1,134 @@
+.trainers {
+   background: var(--bg-color);
+   color: var(--text-color-secondary);
+   padding: 57px 0 107px;
+   h2 {
+     color: var(--title-color-secondary);
+   }
+   &-items {
+     background: #0f0f0f;
+     border: 1px solid rgba(var(--color-rgb-secondary), 0.3);
+     border-radius: 6px;
+     display: flex;
+     overflow: hidden;
+     height: 100%;
+     overflow: hidden;
+   }
+   &-img {
+     flex: 0 0 256px;
+     border-radius: 6px 0px 0px 6px;
+     overflow: hidden;
+     img {
+       height: 100%;
+       width: 100%;
+       object-fit: cover;
+     }
+     .mobile {
+       display: none;
+     }
+   }
+   &-body {
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     padding: 45px 22px 73px 13px;
+     color: rgba(var(--color-rgb-secondary), 0.7);
+     h3 {
+       color: var(--text-color-secondary);
+       margin: 0 0 7px;
+     }
+     .sport {
+       display: block;
+       font-weight: 700;
+       font-size: 16px;
+       line-height: 1.2;
+       margin: 0 0 32px;
+     }
+     p {
+       margin: 0;
+     }
+   }
+   &-socials {
+     display: flex;
+     align-items: center;
+     gap: 9px;
+     padding: 0;
+     a {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       width: 24px;
+       height: 24px;
+       background: var(--bg-color-secondary);
+       border-radius: 50%;
+       color: var(--text-color);
+     }
+     .social-item:hover {
+       opacity: 0.5;
+     }
+   }
+ }
+ @include media-breakpoint-down(xl) {
+   .trainers {
+     padding: 35px 0 65px;
+     &-img {
+       flex: 0 0 180px;
+     }
+     &-body {
+       padding: 45px 23px 30px 20px;
+     }
+   }
+ }
+ @include media-breakpoint-down(lg) {
+   .trainers {
+     &-body {
+       gap: 10px;
+     }
+     &-img {
+       flex: 0 0 140px;
+     }
+   }
+ }
+ @include media-breakpoint-down(md) {
+   .trainers {
+     padding: 65px 0;
+     &-items {
+       flex-direction: column;
+     }
+     h2 {
+       margin: 0 0 30px;
+     }
+     &-img {
+       flex: 0 0 220px;
+       .desktop {
+         display: none;
+       }
+       .mobile {
+         display: block;
+       }
+     }
+     &-body {
+       font-size: 16px;
+       padding: 6px 23px 21px 20px;
+       gap: 35px;
+       display: flex;
+       flex-direction: column;
+       justify-content: space-between;
+ 
+       h3 {
+         text-align: center;
+         margin: 0 0 1px;
+       }
+       .sport {
+         text-align: center;
+         margin: 0 0 17px;
+       }
+     }
+     &-socials {
+       justify-content: center;
+     }
+     .swiper-container {
+       padding: 0 21px;
+     }
+   }
+ }

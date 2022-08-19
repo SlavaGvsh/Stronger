@@ -1,0 +1,125 @@
+#footer {
+   padding-top: 85px;
+   padding-bottom: 164px;
+   position: relative;
+   .row {
+     --bs-gutter-x: 2rem;
+   }
+   .form-group {
+     margin: 0 0 18px;
+   }
+   .form-control {
+     padding: 10px 15px;
+   }
+   textarea.form-control {
+     resize: none;
+     height: 90px;
+   }
+   .socials {
+     gap: 14px;
+     justify-content: flex-end;
+     a {
+       width: 32px;
+       height: 32px;
+       background: var(--bg-color);
+       color: var(--text-color-secondary);
+       i {
+         font-size: 18px;
+       }
+     }
+   }
+ }
+ .footer {
+   &-info {
+     display: flex;
+     flex-wrap: wrap;
+     padding-left: 74px;
+     margin: 0 0 -17px;
+     li {
+       flex: 0 0 50%;
+       position: relative;
+       padding: 20px 0 45px 66px;
+       margin: 0 0 27px 0;
+     }
+     .icon {
+       background: var(--bg-color);
+       border-radius: 50%;
+       width: 45px;
+       height: 45px;
+       position: absolute;
+       top: 0;
+       left: 0;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+     }
+     h3 {
+     }
+     p {
+       margin: 0 0 14px;
+       &:last-child {
+         margin: 0;
+       }
+     }
+     a {
+       color: var(--text-color);
+     }
+   }
+ }
+ @include media-breakpoint-down(xl) {
+   #footer {
+     padding-top: 35px;
+     padding-bottom: 65px;
+   }
+   .footer-info {
+     padding-left: 30px;
+     margin: 0;
+     li {
+       padding: 20px 0 20px 66px;
+     }
+   }
+ }
+ @include media-breakpoint-down(lg) {
+   #footer {
+     .btn {
+       display: block;
+     }
+     .socials {
+       justify-content: center;
+       gap: 27px;
+       a {
+         width: 40px;
+         height: 40px;
+       }
+     }
+   }
+   .footer {
+     &-info {
+       padding: 40px 0 0;
+     }
+   }
+ }
+ @include media-breakpoint-down(md) {
+   .footer-info {
+     margin: 0px 0px 22px 0px;
+     text-align: center;
+     li {
+       padding: 0;
+     }
+     .icon {
+       position: static;
+       margin: 0 auto;
+     }
+     p {
+       font-size: 16px;
+     }
+     address {
+       font-size: 16px;
+     }
+   }
+ }
+ @include media-breakpoint-down(sm) {
+   .footer-info {
+     flex-direction: column;
+   }
+ }

@@ -1,0 +1,192 @@
+.pricing {
+   margin: -104px 0 0;
+   position: relative;
+   padding: 0 0 54px;
+   h2 {
+     color: var(--title-color-secondary);
+     margin: 0 0 30px;
+   }
+   .swiper {
+     &-container {
+       margin: 0 -15px;
+     }
+     &-wrapper {
+       padding: 15px 0 50px;
+     }
+     &-slide {
+       padding: 0 20px;
+     }
+     &-button-prev {
+       top: 44%;
+       left: -50px;
+     }
+     &-button-next {
+       top: 44%;
+       right: -50px;
+     }
+     &-button-next:after,
+     &-button-prev:after {
+       color: #000;
+     }
+   }
+ }
+ .price-block {
+   padding: 32px 33px 44px 37px;
+   border: 1px solid rgba(5, 5, 6, 0.2);
+   background: var(--bg-color-secondary);
+   border-radius: 6px;
+   color: var(--text-color);
+   &-title {
+     border-bottom: 1px solid #cdcdcd;
+     margin: 0 0 27px;
+     padding: 0 0 35px;
+     font-weight: 700;
+     font-size: 12px;
+     line-height: 1.2;
+     h3 {
+       margin: 0 0 14px;
+     }
+     .price {
+       font-size: 16px;
+     }
+   }
+   &-body {
+     ul {
+       padding-bottom: 2px;
+       li {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         padding: 0 6px 4px 32px;
+         margin: 0 0 23px;
+         position: relative;
+         &::before {
+           content: "";
+           position: absolute;
+           left: 0;
+           top: 0;
+           width: 23px;
+           height: 23px;
+           background: var(--bg-color) url(../img/pricing/icons-01.png) 50% 50% no-repeat;
+           border-radius: 50%;
+         }
+       }
+     }
+     .price {
+       font-size: 16px;
+     }
+   }
+   .swiper-slide-next & {
+     border-color: var(--border-color-secondary);
+     box-shadow: 0 4px 4px rgba(var(--color-rgb), 0.25), 0px 14px 16px 10px rgba(var(--color-rgb), 0.15);
+     margin-bottom: -12px;
+     .price-block-title {
+       h3 {
+         margin: 0 0 18px;
+       }
+     }
+     .price-block-body {
+       ul {
+         padding-bottom: 10px;
+         transition: padding-bottom 0.3s ease;
+       }
+       .btn {
+         background: var(--bg-color);
+         color: var(--text-color-secondary);
+         border-color: var(--border-color-secondary);
+         &:hover {
+           background: var(--bg-color-secondary);
+           color: var(--text-color);
+           border-color: var(--border-color);
+         }
+       }
+     }
+   }
+ }
+ @include media-breakpoint-down(xl) {
+   .pricing {
+     .swiper {
+       &-button-prev {
+         left: -10px;
+       }
+       &-button-next {
+         right: -10px;
+       }
+     }
+   }
+   .price-block {
+     padding: 32px 20px 44px 20px;
+   }
+ }
+ @include media-breakpoint-down(md) {
+   .pricing {
+     margin: 0;
+     padding: 26px 0 54px;
+     h2 {
+       color: var(--title-color);
+       margin: 0;
+     }
+     .swiper {
+       &-container {
+         margin: 0;
+       }
+       &-slide {
+         padding: 0 25px;
+       }
+     }
+   }
+   .price-block {
+     border: none;
+     height: 100%;
+     padding: 32px 20px 26px 30px;
+     box-shadow: 0 4px 4px rgba(var(--color-rgb), 0.25), 0px 14px 16px 10px rgba(0, 0, 0, 0.15);
+     &-title {
+       margin: 0 0 25px;
+       padding: 0 0 29px;
+     }
+     &-body {
+       ul {
+         li {
+           padding: 0 27px 4px 35px;
+           margin: 0 0 20px;
+         }
+       }
+     }
+     .btn {
+       background: var(--bg-color);
+       color: var(--text-color-secondary);
+       border-color: var(--border-color-secondary);
+       &:hover {
+         background: var(--bg-color-secondary);
+         color: var(--text-color);
+         border-color: var(--border-color);
+       }
+     }
+     .swiper-slide-next & {
+       margin-bottom: 0;
+       .price-block-title {
+         h3 {
+           margin: 0 0 14px;
+         }
+       }
+       .price-block-body {
+         ul {
+           padding-bottom: 0;
+         }
+       }
+     }
+   }
+ }
+ @include media-breakpoint-down(sm) {
+   .price-block {
+     padding: 32px 10px 26px 10px;
+   }
+   .price-block-body {
+     ul {
+       li {
+         padding: 0 14px 4px 27px;
+       }
+     }
+   }
+ }
+ 

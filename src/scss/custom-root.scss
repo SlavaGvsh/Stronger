@@ -7,13 +7,29 @@
    --bs-font-sans-serif: "Lato", sans-serif;
    // --bs-white: #fff;
    // --bs-black: #000;
+   --color-rgb: var(--bs-black-rgb);
+   --color-rgb-secondary: var(--bs-white-rgb);
+
    --title-color: var(--bs-black);
    --title-color-secondary: var(--bs-white);
 
    --text-color: var(--bs-black);
    --text-color-secondary: var(--bs-white);
+
    --bg-color: var(--bs-black);
    --bg-color-secondary: var(--bs-white);
+
    --border-color: var(--bs-black);
    --border-color-secondary: var(--bs-white);
+
+
+   --nav-bar-text-color: var(--bs-white);
+   --nav-bar-text-color-secondary: rgba(244, 240, 240, 0.566);
+
+   --btn-bg-color: var(--bs-black);
+   --btn-bg-color-secondary: var(--bs-white);
+   --btn-border-color: var(--bs-black);
+   --btn-border-color-secondary: var(--bs-white);
+   --btn-text-color: var(--bs-black);
+   --btn-text-color-secondary: var(--bs-white);
 }
