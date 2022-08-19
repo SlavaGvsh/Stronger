@@ -1,0 +1,19 @@
+:root {
+   --bs-body-bg: #fff;
+   --bs-body-font-size: 12px;
+   --bs-body-font-weight: 400;
+   --bs-body-line-height: 1.2;
+   --bs-body-color: #000;
+   --bs-font-sans-serif: "Lato", sans-serif;
+   // --bs-white: #fff;
+   // --bs-black: #000;
+   --title-color: var(--bs-black);
+   --title-color-secondary: var(--bs-white);
+
+   --text-color: var(--bs-black);
+   --text-color-secondary: var(--bs-white);
+   --bg-color: var(--bs-black);
+   --bg-color-secondary: var(--bs-white);
+   --border-color: var(--bs-black);
+   --border-color-secondary: var(--bs-white);
+}
