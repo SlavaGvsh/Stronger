@@ -1,0 +1,76 @@
+.classes {
+  background: var(--bg-color-secondary);
+  color: var(--text-color);
+  padding: 86px 0 107px;
+  &-items {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-color-secondary);
+    border-radius: 6px;
+    border: 1px solid;
+    border-color: rgba(var(--color-rgb), 0.3);
+    height: 100%;
+  }
+  &-img {
+    border-radius: 6px 6px 0 0;
+    overflow: hidden;
+    height: 200px;
+    picture {
+      display: block;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &-body {
+    padding: 15px 33px 31px 35px;
+    color: rgba(var(--color-rgb), 0.8);
+    h3 {
+      margin: 0 0 21px;
+    }
+    p {
+      margin-bottom: 13px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .swiper {
+    &-button-next:after,
+    &-button-prev:after {
+      color: var(--title-color);
+    }
+  }
+}
+
+@include media-breakpoint-down(xl) {
+  .classes {
+    padding: 35px 0 60px;
+    &-img {
+      height: 160px;
+      picture {
+        height: 100%;
+      }
+    }
+    &-body {
+      padding: 15px 20px 31px 20px;
+    }
+  }
+}
+@include media-breakpoint-down(lg) {
+  .classes {
+    &-img {
+      height: 210px;
+    }
+  }
+}
+@include media-breakpoint-down(md) {
+  .classes {
+    &-items {
+      font-size: 16px;
+      line-height: 1.2;
+    }
+  }
+}
